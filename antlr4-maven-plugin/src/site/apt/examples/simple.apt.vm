@@ -6,7 +6,7 @@ Simple configuration
 +--
 <plugins>
 <plugin>
-    <groupId>org.antlr</groupId>
+    <groupId>uk.co.nichesolutions</groupId>
     <artifactId>antlr4-maven-plugin</artifactId>
     <version>${project.version}</version>
     <executions>

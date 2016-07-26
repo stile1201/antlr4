@@ -132,7 +132,7 @@ Edit the pom.xml file. Now we need to extensively modify the pom.xml file. The f
   </properties>
   <dependencies>
     <dependency>
-      <groupId>org.antlr</groupId>
+      <groupId>uk.co.nichesolutions</groupId>
       <artifactId>antlr4-runtime</artifactId>
       <version>4.5</version>
     </dependency>
@@ -162,7 +162,7 @@ Edit the pom.xml file. Now we need to extensively modify the pom.xml file. The f
            In any case, Maven will invoke this plugin before the Java source is compiled
         -->
       <plugin>
-        <groupId>org.antlr</groupId>
+        <groupId>uk.co.nichesolutions</groupId>
         <artifactId>antlr4-maven-plugin</artifactId>
         <version>4.5</version>
         <executions>

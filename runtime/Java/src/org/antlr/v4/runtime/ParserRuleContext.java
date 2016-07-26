@@ -181,7 +181,9 @@ public class ParserRuleContext extends RuleContext {
 		}
 
 		int j = -1; // what element have we found with ctxType?
-		for (ParseTree o : children) {
+		int count = children.size();
+		for (int x = 0; x < count; x++) {
+			ParseTree o = children.get(x);
 			if ( ctxType.isInstance(o) ) {
 				j++;
 				if ( j == i ) {
@@ -198,7 +200,9 @@ public class ParserRuleContext extends RuleContext {
 		}
 
 		int j = -1; // what token with ttype have we found?
-		for (ParseTree o : children) {
+		int count = children.size();
+		for (int x = 0; x < count; x++) {
+			ParseTree o = children.get(x);
 			if ( o instanceof TerminalNode ) {
 				TerminalNode tnode = (TerminalNode)o;
 				Token symbol = tnode.getSymbol();
@@ -220,7 +224,9 @@ public class ParserRuleContext extends RuleContext {
 		}
 
 		List<TerminalNode> tokens = null;
-		for (ParseTree o : children) {
+		int count = children.size();
+		for (int x = 0; x < count; x++) {
+			ParseTree o = children.get(x);
 			if ( o instanceof TerminalNode ) {
 				TerminalNode tnode = (TerminalNode)o;
 				Token symbol = tnode.getSymbol();
@@ -250,7 +256,9 @@ public class ParserRuleContext extends RuleContext {
 		}
 
 		List<T> contexts = null;
-		for (ParseTree o : children) {
+		int count = children.size();
+		for (int x = 0; x < count; x++) {
+			ParseTree o = children.get(x);
 			if ( ctxType.isInstance(o) ) {
 				if ( contexts==null ) {
 					contexts = new ArrayList<T>();

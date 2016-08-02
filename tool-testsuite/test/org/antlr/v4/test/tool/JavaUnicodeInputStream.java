@@ -81,6 +81,11 @@ public class JavaUnicodeInputStream implements CharStream {
 	}
 
 	@Override
+	public StringBuilder getText(Interval interval, StringBuilder builder) {
+		return source.getText(interval, builder);
+	}
+
+	@Override
 	public void consume() {
 		if (la1 != '\\') {
 			source.consume();

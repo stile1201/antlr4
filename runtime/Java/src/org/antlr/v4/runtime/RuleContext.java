@@ -157,11 +157,18 @@ public class RuleContext implements RuleNode {
 		}
 
 		StringBuilder builder = new StringBuilder();
-		for (int i = 0; i < getChildCount(); i++) {
-			builder.append(getChild(i).getText());
-		}
+		getText(builder);
 
 		return builder.toString();
+	}
+
+	@Override
+	public StringBuilder getText(StringBuilder builder) {
+		int childCount = getChildCount();
+		for (int i = 0; i < childCount; i++) {
+			getChild(i).getText(builder);
+		}
+		return builder;
 	}
 
 	public int getRuleIndex() { return -1; }

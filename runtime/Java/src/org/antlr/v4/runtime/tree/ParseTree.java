@@ -57,6 +57,12 @@ public interface ParseTree extends SyntaxTree {
 	 */
 	String getText();
 
+	/** Append the combined text of all leaf nodes to the provided StringBuilder.
+	 * Does not get any off-channel tokens (if any) so won't append whitespace and
+	 * comments if they are sent to parser on hidden channel.
+     */
+	StringBuilder getText(StringBuilder builder);
+
 	/** Specialize toStringTree so that it can print out more information
 	 * 	based upon the parser.
 	 */

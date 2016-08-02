@@ -72,6 +72,11 @@ public class TerminalNodeImpl implements TerminalNode {
 	public String getText() { return symbol.getText(); }
 
 	@Override
+	public StringBuilder getText(StringBuilder builder) {
+		return symbol.getText(builder);
+	}
+
+	@Override
 	public String toStringTree(Parser parser) {
 		return toString();
 	}

@@ -68,6 +68,15 @@ public class ANTLRInputStream implements CharStream {
 		this.n = input.length();
 	}
 
+	/** Copy data in CharSequence to a local char array */
+	public ANTLRInputStream(CharSequence seq) {
+		this.data = new char[seq.length()];
+		this.n = seq.length();
+		for (int i = 0; i < this.n; i++) {
+			this.data[i] = seq.charAt(i);
+		}
+	}
+
 	/** This is the preferred constructor for strings as no data is copied */
 	public ANTLRInputStream(char[] data, int numberOfActualCharsInArray) {
 		this.data = data;
@@ -234,6 +243,20 @@ public class ANTLRInputStream implements CharStream {
 //						   ", start="+start+
 //						   ", stop="+stop);
 		return new String(data, start, count);
+	}
+
+	@Override
+	public StringBuilder getText(Interval interval, StringBuilder builder) {
+		int start = interval.a;
+		int stop = interval.b;
+		if ( stop >= n ) stop = n-1;
+		int count = stop - start + 1;
+		if ( start >= n ) return builder;
+//		System.err.println("data: "+Arrays.toString(data)+", n="+n+
+//						   ", start="+start+
+//						   ", stop="+stop);
+		builder.append(data, start, count);
+		return builder;
 	}
 
 	@Override

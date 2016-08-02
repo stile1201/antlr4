@@ -306,6 +306,16 @@ public class UnbufferedCharStream implements CharStream {
 
 	@Override
 	public String getText(Interval interval) {
+		int i = getTextStart(interval);
+		return new String(data, i, interval.length());
+	}
+
+	@Override
+	public StringBuilder getText(Interval interval, StringBuilder builder) {
+		return builder.append(data, getTextStart(interval), interval.length());
+	}
+
+	private int getTextStart(Interval interval) {
 		if (interval.a < 0 || interval.b < interval.a - 1) {
 			throw new IllegalArgumentException("invalid interval");
 		}
@@ -322,8 +332,7 @@ public class UnbufferedCharStream implements CharStream {
 			                    bufferStartIndex+".."+(bufferStartIndex+n-1));
 		}
 		// convert from absolute to local index
-		int i = interval.a - bufferStartIndex;
-		return new String(data, i, interval.length());
+		return interval.a - bufferStartIndex;
 	}
 
 	protected final int getBufferStartIndex() {

@@ -75,6 +75,11 @@ public interface Token {
 	 */
 	String getText();
 
+	/**
+	 * Append the text of the token to the provided StringBuilder.
+	 */
+	StringBuilder getText(StringBuilder builder);
+
 	/** Get the token type of the token */
 	int getType();
 

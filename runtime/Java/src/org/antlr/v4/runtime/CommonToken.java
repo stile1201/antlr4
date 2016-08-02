@@ -198,6 +198,23 @@ public class CommonToken implements WritableToken, Serializable {
 		}
 	}
 
+	@Override
+	public StringBuilder getText(StringBuilder builder) {
+		if (text != null) {
+			return builder.append(text);
+		}
+
+		CharStream input = getInputStream();
+		if ( input==null ) return null;
+		int n = input.size();
+		if ( start<n && stop<n) {
+			return input.getText(Interval.of(start,stop), builder);
+		}
+		else {
+			return builder.append("<EOF>");
+		}
+	}
+
 	/**
 	 * Explicitly set the text for this token. If {code text} is not
 	 * {@code null}, then {@link #getText} will return this value rather than

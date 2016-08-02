@@ -139,6 +139,21 @@ public class RuleTagToken implements Token {
 	/**
 	 * {@inheritDoc}
 	 *
+	 * <p>This method appends the rule tag formatted with {@code <} and {@code >}
+	 * delimiters.</p>
+	 */
+	@Override
+	public StringBuilder getText(StringBuilder builder) {
+		if (label != null) {
+			return builder.append('<').append(label).append(':').append(ruleName).append('>');
+		}
+
+		return builder.append('<').append(ruleName).append('>');
+	}
+
+	/**
+	 * {@inheritDoc}
+	 *
 	 * <p>Rule tag tokens have types assigned according to the rule bypass
 	 * transitions created during ATN deserialization.</p>
 	 */

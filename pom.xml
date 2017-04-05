@@ -56,6 +56,11 @@
         <role>Developer - Maven Plugin</role>
       </roles>
     </developer>
+    <developer>
+      <name>Nick Chadwick</name>
+      <roles>
+	<role>Developer - Custom Version</role>
+      </roles>
   </developers>
 
   <modules>
@@ -74,22 +79,10 @@
     <maven.compiler.target>1.6</maven.compiler.target>
   </properties>
 
-  <mailingLists>
-    <mailingList>
-      <name>antlr-discussion</name>
-      <archive>https://groups.google.com/forum/?fromgroups#!forum/antlr-discussion</archive>
-    </mailingList>
-  </mailingLists>
-
-  <issueManagement>
-    <system>GitHub Issues</system>
-    <url>https://github.com/antlr/antlr4/issues</url>
-  </issueManagement>
-
-  <scm>
-    <url>https://github.com/antlr/antlr4/tree/master</url>
-    <connection>scm:git:git://github.com/antlr/antlr4.git</connection>
-    <developerConnection>scm:git:git@github.com:antlr/antlr4.git</developerConnection>
+ <scm>
+    <url>https://github.com/stile1201/antlr4/tree/master</url>
+    <connection>scm:git:git://github.com/stile1201/antlr4.git</connection>
+    <developerConnection>scm:git:git@github.com:stile1201/antlr4.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
 
@@ -128,5 +121,9 @@
       <id>sonatype-nexus-snapshots</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
+    <repository>
+      <id>sonatype-nexus-releases</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
   </distributionManagement>
 </project>

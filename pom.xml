@@ -61,6 +61,7 @@
       <roles>
 	<role>Developer - Custom Version</role>
       </roles>
+    </developer>
   </developers>
 
   <modules>
